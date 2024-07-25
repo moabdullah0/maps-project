@@ -13,14 +13,19 @@ const Form = () => {
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
-    setStep(1);
+    setStep(1);         
   }, []);
 
   const handleNext = (
     data: StepOneFormData | StepTwoFormData | StepThreeFormData | StepFourFormData
   ) => {
     setFormData({ ...formData, ...data });
-    setStep(step + 1);
+
+    if (step === 4) {
+      localStorage.clear();
+    } else {
+      setStep(step + 1);
+    }
   };
 
   const handleBack = () => {
