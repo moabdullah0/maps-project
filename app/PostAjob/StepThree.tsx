@@ -16,7 +16,6 @@ const StepThree = ({ onNext, onBack }: { onNext: (data: StepThreeFormData) => vo
   });
 
   useEffect(() => {
-    // استرجاع البيانات من التخزين المحلي عند تحميل المكون
     const storedData = localStorage.getItem('stepThreeData');
     if (storedData) {
       const parsedData = JSON.parse(storedData);

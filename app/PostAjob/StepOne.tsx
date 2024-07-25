@@ -12,7 +12,6 @@ const languageOptions = [
 ];
 
 const StepOne = ({ onNext }: { onNext: (data: StepOneFormData) => void }) => {
-  // استرجاع البيانات من التخزين المحلي
   const storedData = typeof window !== 'undefined' ? localStorage.getItem('stepOneData') : null;
   const defaultValues = storedData ? JSON.parse(storedData) : {
     title: "",

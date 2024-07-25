@@ -1,4 +1,4 @@
-import Title from "./PostAjob/Title";
+import Title from "./PostAjob/Form";
 
 export default function Home() {
   return (
