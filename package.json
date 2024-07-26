@@ -16,7 +16,6 @@
     "react-dom": "^18",
     "react-hook-form": "^7.52.1",
     "react-select": "^5.8.0",
-    "react-toastify": "^10.0.5",
     "vercel": "^35.2.0",
     "zod": "^3.23.8"
   },

@@ -107,14 +107,32 @@ const StepOne = ({ onNext }: { onNext: (data: StepOneFormData) => void }) => {
         <div>
           <label htmlFor="language" className="block text-sm font-medium text-gray-700">Language</label>
           <Select
-            id="language"
-            isMulti
-            options={languageOptions}
-            className="mt-1"
-            classNamePrefix="select"
-            onChange={handleLanguageChange}
-            defaultValue={defaultValues.language}
-          />
+          id="skills"
+          isMulti
+          options={languageOptions}
+          className="mt-1"
+          classNamePrefix="select"
+          onChange={handleLanguageChange}
+          styles={{
+            multiValue: (base) => ({
+              ...base,
+              backgroundColor: "#D6FFD0", 
+            }),
+            multiValueLabel: (base) => ({
+              ...base,
+              color: "#000",
+              
+            }),
+            multiValueRemove: (base) => ({
+              ...base,
+              color: "#000",
+              ':hover': {
+                backgroundColor: "#FF6B6B", 
+                color: "#FFF",
+              },
+            }),
+          }}
+        />
           {errors.language && (
             <span className="text-red-500 text-sm">{errors.language.message}</span>
           )}

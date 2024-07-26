@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { stepFourSchema, StepFourFormData } from "./schema";
-import Image from "next/image";
 import Select from "react-select";
+import { StepFourFormData, stepFourSchema } from "./schema";
 
 const StepFour = ({
   onSubmit,
@@ -14,6 +13,8 @@ const StepFour = ({
   onBack: () => void;
   formData: any;
 }) => {
+  const [inviteSelected, setInviteSelected] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -23,7 +24,7 @@ const StepFour = ({
     resolver: zodResolver(stepFourSchema),
   });
 
-  const submitHandler = (data: StepFourFormData) => {
+  const submitHandler = async (data: StepFourFormData) => {
     const finalData = { ...formData, ...data };
     console.log(finalData);
   };
@@ -37,9 +38,15 @@ const StepFour = ({
     setValue("Invite", selectedOptions);
   };
 
+  const handleJobAudienceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value === "Invite freelancer") {
+      setInviteSelected(e.target.checked);
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
-  <h1 className="font-bold">Publish</h1>
+      <h1 className="font-bold">Post a Job</h1>
       <div className="mt-4">
         <label
           htmlFor="jobAudience"
@@ -51,9 +58,9 @@ const StepFour = ({
           <input
             id="public"
             {...register("jobAudience")}
-            type="radio"
+            type="checkbox"
             value="Public"
-            className="form-radio"
+            className="form-checkbox"
           />
           <label htmlFor="public" className="ml-2 block text-sm text-gray-900">
             Public
@@ -61,9 +68,10 @@ const StepFour = ({
           <input
             id="invite"
             {...register("jobAudience")}
-            type="radio"
+            type="checkbox"
             value="Invite freelancer"
-            className="form-radio ml-4"
+            className="form-checkbox ml-4"
+            onChange={handleJobAudienceChange}
           />
           <label htmlFor="invite" className="ml-2 block text-sm text-gray-900">
             Invite freelancer
@@ -75,37 +83,40 @@ const StepFour = ({
           </span>
         )}
       </div>
-      <div className="mt-4">
-        <label
-          htmlFor="Invite"
-          className="block text-sm font-medium text-gray-700"
-        >
-          Skills
-        </label>
-        <Select
-          id="Invite"
-          isMulti
-          options={InviteFreelancers}
-          className="mt-1"
-          classNamePrefix="select"
-          onChange={handleInviteChange}
-        />
-        {errors.Invite && (
-          <span className="text-red-500 text-sm">{errors.Invite.message}</span>
-        )}
-      </div>
+      {inviteSelected && (
+        <div className="mt-4">
+          <label
+            htmlFor="Invite"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Invite Freelancers (Optional)
+          </label>
+          <Select
+            id="Invite"
+            isMulti
+            options={InviteFreelancers}
+            className="mt-1"
+            classNamePrefix="select"
+            onChange={handleInviteChange}
+          />
+          {errors.Invite && (
+            <span className="text-red-500 text-sm">
+              {errors.Invite.message}
+            </span>
+          )}
+        </div>
+      )}
       <div className="mt-6 flex justify-between">
-      <button
+        <button
           type="button"
           onClick={onBack}
-          className="inline-flex justify-center rounded-md  border-b border-b-gray-500 text-font-text-back py-2 px-4 text-sm font-medium   hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className="inline-flex justify-center rounded-md border-b border-b-gray-500 text-font-text-back py-2 px-4 text-sm font-medium hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         >
           Back
         </button>
         <button
           type="submit"
           className="inline-flex justify-center bg-button-color rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-        onClick={()=>{localStorage.clear();}}
         >
           Post
         </button>

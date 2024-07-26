@@ -21,11 +21,9 @@ const Form = () => {
   ) => {
     setFormData({ ...formData, ...data });
 
-    if (step === 4) {
-      localStorage.clear();
-    } else {
+
+   
       setStep(step + 1);
-    }
   };
 
   const handleBack = () => {
