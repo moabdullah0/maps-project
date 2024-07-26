@@ -5,7 +5,6 @@ import Select from "react-select";
 import { StepFourFormData, stepFourSchema } from "./schema";
 
 const StepFour = ({
-  onSubmit,
   onBack,
   formData,
 }: {
@@ -116,6 +115,7 @@ const StepFour = ({
         </button>
         <button
           type="submit"
+          onClick={()=>{localStorage.clear();}}
           className="inline-flex justify-center bg-button-color rounded-md border border-transparent py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
         >
           Post

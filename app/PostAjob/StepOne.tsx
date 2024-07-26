@@ -61,7 +61,7 @@ const StepOne = ({ onNext }: { onNext: (data: StepOneFormData) => void }) => {
         )}
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-4">
+      <div className="mt-4 grid   lg:grid-cols-2 sm:grid-col-1 gap-4">
         <div>
           <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
           <select
@@ -92,7 +92,7 @@ const StepOne = ({ onNext }: { onNext: (data: StepOneFormData) => void }) => {
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-4">
+      <div className="mt-4 grid lg:grid-cols-2 sm:grid-col-1 gap-4">
         <div>
           <label htmlFor="country" className="block text-sm font-medium text-gray-700">Country (Optional)</label>
           <select

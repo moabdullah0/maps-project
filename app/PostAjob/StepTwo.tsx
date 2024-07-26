@@ -18,7 +18,6 @@ const StepTwo = ({
   onBack: () => void;
 }) => {
   const {
-    register,
     handleSubmit,
     setValue,
     formState: { errors },
