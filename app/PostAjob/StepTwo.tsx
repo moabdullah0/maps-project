@@ -119,11 +119,11 @@ const StepTwo = ({
         )}
       </div>
 
-      <div className="mt-6 flex justify-between">
+      <div className="mt-6 flex lg:justify-between lg:flex-row flex-col-reverse justify-center gap-4">
         <button
           type="button"
           onClick={onBack}
-          className="inline-flex justify-center rounded-md  border-b border-b-gray-500 text-font-text-back py-2 px-4 text-sm font-medium   hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className="inline-flex justify-center  rounded-md  border-b border-b-gray-500 text-font-text-back py-2 px-4 text-sm font-medium   hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
         >
           Back
         </button>

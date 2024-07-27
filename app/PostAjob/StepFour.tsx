@@ -105,7 +105,7 @@ const StepFour = ({
           )}
         </div>
       )}
-      <div className="mt-6 flex justify-between">
+      <div className="mt-6 flex lg:justify-between lg:flex-row flex-col-reverse justify-center gap-4">
         <button
           type="button"
           onClick={onBack}
