@@ -137,7 +137,7 @@ const StepThree = ({
           )}
         </div>
 
-        <div className="mt-6 flex lg:justify-between lg:flex-row flex-col-reverse justify-center gap-4">
+        <div className="mt-6 flex flex-col-reverse justify-center lg:justify-between lg:flex-row md:justify-between md:flex-row  gap-4">
         <button
           type="button"
           onClick={onBack}

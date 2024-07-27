@@ -119,7 +119,7 @@ const StepTwo = ({
         )}
       </div>
 
-      <div className="mt-6 flex lg:justify-between lg:flex-row flex-col-reverse justify-center gap-4">
+      <div className="mt-6 flex lg:justify-between md:justify-between md:flex-row lg:flex-row flex-col-reverse justify-center gap-4">
         <button
           type="button"
           onClick={onBack}
